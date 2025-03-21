@@ -4,19 +4,40 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private UIMainMenu uiMainMenu;
-    [SerializeField] private UIStatus uiStatus;
-    [SerializeField] private UIInventory uiInventory;
+    private GameObject uiMainMenu;
+    public UIMainMenu UIMainMenu { get; private set; }
 
-    // Start is called before the first frame update
-    void Start()
+    private GameObject uiStatus;
+    public UIStatus UIStatus { get; private set; }
+
+    private GameObject uiInventory;
+    public UIInventory UIInventory { get; private set; }
+
+    public static UIManager Instance;
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+            UIManager.Instance = this;
+        else if (Instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeMenu(int amount)
     {
-        
+        switch (amount)
+        {
+            case 0:
+                uiMainMenu.SetActive(false);
+                uiStatus.SetActive(true);
+                break;
+            case 1:
+                uiMainMenu.SetActive(false);
+                uiInventory.SetActive(true);
+                break;
+        }
+
     }
 }
