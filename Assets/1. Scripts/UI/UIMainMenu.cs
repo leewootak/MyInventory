@@ -1,20 +1,20 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
-    public bool isStatus, isInventory;
+    private bool isStatus, isInventory;
 
-    [Header("UI")]
+    [Header("Btn")]
     [SerializeField] Button StatusBtn;
     [SerializeField] Button InventoryBtn;
-
+    
     [Header("Reference")]
     [SerializeField] private UIManager UIManager;
 
     private void Start()
     {
-        Debug.Log("UIManager.Instance is: " + UIManager.Instance);
         UIManager.Instance.SetMainMenu(this);
         StatusBtn.onClick.AddListener(OpenStatus);
         InventoryBtn.onClick.AddListener(OpenInventory);

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public static Character Instance { get; private set; }
+
     public string Title;
     public string Name;
     public int Atk;
