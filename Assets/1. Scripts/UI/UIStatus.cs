@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour
 {
-    public TextMeshPro curAtk;
-    public TextMeshPro curDef;
-    public TextMeshPro curHp;
-    public TextMeshPro curCri;
-    public Button backBtn;
+    [Header("UI")]
+    public TextMeshProUGUI curAtk;
+    public TextMeshProUGUI curDef;
+    public TextMeshProUGUI curHp;
+    public TextMeshProUGUI curCri;
+    public Button BackBtn;
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Reference")]
+    [SerializeField] UIMainMenu UIMainMenu;
+
+    private void Awake()
     {
-        
+        UIManager.Instance.UIStatus = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        BackBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
     }
 }

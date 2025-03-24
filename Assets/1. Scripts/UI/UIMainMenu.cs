@@ -1,27 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
-    public Button statusBtn;
+    public bool isStatus, isInventory;
+
+    [Header("Obj")]
+    public GameObject MainMenuObj;
+    public GameObject UIStatus;
+    public GameObject UIInventory;
+
+    [Header("UI")]
+    public Button StatusBtn;
     public Button InventoryBtn;
 
-    public UIManager uiManager;
+    [Header("Reference")]
+    public UIManager UIManager;
 
-    void OpenMainMenu()
+    private void Awake()
     {
-        uiManager.ChangeMenu(0);
+        UIManager.Instance.UIMainMenu = this;
     }
 
-    void OpenStatus()
+    private void Start()
     {
-        uiManager.ChangeMenu(0);        
+        StatusBtn.onClick.AddListener(OpenStatus);
+        InventoryBtn.onClick.AddListener(OpenInventory);
     }
 
-    void OpenInventory()
+    public void OpenMainMenu()
     {
-        uiManager.ChangeMenu(1);
+        if (isStatus)
+        {
+            isStatus = false;
+            UIStatus.SetActive(false);
+            MainMenuObj.SetActive(true);
+        }
+        else if (isInventory)
+        {
+            isInventory = false;
+            UIInventory.SetActive(false);
+            MainMenuObj.SetActive(true);
+        }
+    }
+
+    public void OpenStatus()
+    {
+        isStatus = true;
+        MainMenuObj.SetActive(false);
+        UIStatus.SetActive(true);
+    }
+
+    public void OpenInventory()
+    {
+        isInventory = true;
+        MainMenuObj.SetActive(false);
+        UIInventory.SetActive(true);
     }
 }

@@ -6,9 +6,20 @@ using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
-    public TextMeshPro curWeight;
-    public TextMeshPro maxWeight;
-    public Button backBtn;
+    [Header("UI")]
+    public TextMeshProUGUI CurWeight;
+    public Button BackBtn;
 
-    
+    [Header("Reference")]
+    [SerializeField] UIMainMenu UIMainMenu;
+
+    private void Awake()
+    {
+        UIManager.Instance.UIInventory = this;
+    }
+
+    private void Start()
+    {
+        BackBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
+    }
 }
