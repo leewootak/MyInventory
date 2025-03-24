@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,13 +14,9 @@ public class UIStatus : MonoBehaviour
     [Header("Reference")]
     [SerializeField] UIMainMenu UIMainMenu;
 
-    private void Awake()
-    {
-        UIManager.Instance.UIStatus = this;
-    }
-
     private void Start()
     {
+        UIManager.Instance.SetStatus(this);
         BackBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
     }
 }

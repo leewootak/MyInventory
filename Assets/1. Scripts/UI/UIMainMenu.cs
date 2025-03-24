@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,25 +5,17 @@ public class UIMainMenu : MonoBehaviour
 {
     public bool isStatus, isInventory;
 
-    [Header("Obj")]
-    public GameObject MainMenuObj;
-    public GameObject UIStatus;
-    public GameObject UIInventory;
-
     [Header("UI")]
-    public Button StatusBtn;
-    public Button InventoryBtn;
+    [SerializeField] Button StatusBtn;
+    [SerializeField] Button InventoryBtn;
 
     [Header("Reference")]
-    public UIManager UIManager;
-
-    private void Awake()
-    {
-        UIManager.Instance.UIMainMenu = this;
-    }
+    [SerializeField] private UIManager UIManager;
 
     private void Start()
     {
+        Debug.Log("UIManager.Instance is: " + UIManager.Instance);
+        UIManager.Instance.SetMainMenu(this);
         StatusBtn.onClick.AddListener(OpenStatus);
         InventoryBtn.onClick.AddListener(OpenInventory);
     }
@@ -36,28 +25,28 @@ public class UIMainMenu : MonoBehaviour
         if (isStatus)
         {
             isStatus = false;
-            UIStatus.SetActive(false);
-            MainMenuObj.SetActive(true);
+            UIManager.Instance.UIStatus.gameObject.SetActive(false);
+            UIManager.Instance.UIMainMenu.gameObject.SetActive(true);
         }
         else if (isInventory)
         {
             isInventory = false;
-            UIInventory.SetActive(false);
-            MainMenuObj.SetActive(true);
+            UIManager.Instance.UIInventory.gameObject.SetActive(false);
+            UIManager.Instance.UIMainMenu.gameObject.SetActive(true);
         }
     }
 
     public void OpenStatus()
     {
         isStatus = true;
-        MainMenuObj.SetActive(false);
-        UIStatus.SetActive(true);
+        UIManager.Instance.UIMainMenu.gameObject.SetActive(false);
+        UIManager.Instance.UIStatus.gameObject.SetActive(true);
     }
 
     public void OpenInventory()
     {
         isInventory = true;
-        MainMenuObj.SetActive(false);
-        UIInventory.SetActive(true);
+        UIManager.Instance.UIMainMenu.gameObject.SetActive(false);
+        UIManager.Instance.UIInventory.gameObject.SetActive(true);
     }
 }

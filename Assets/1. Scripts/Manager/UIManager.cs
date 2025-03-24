@@ -1,46 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    // 싱글톤 인스턴스
     private static UIManager instance;
-    public static UIManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = new GameObject("UIManager").AddComponent<UIManager>();
-            }
-            return instance;
-        }
-    }
+    public static UIManager Instance { get { return instance; } }
 
+    // 메인 메뉴 UI 참조
     [SerializeField] private UIMainMenu uiMainMenu;
-    public UIMainMenu UIMainMenu 
+    public UIMainMenu UIMainMenu
     {
         get { return uiMainMenu; }
-        set { uiMainMenu = value; }
+        private set { uiMainMenu = value; }
     }
 
+    // 상태창 UI 참조
     [SerializeField] private UIStatus uiStatus;
     public UIStatus UIStatus
     {
         get { return uiStatus; }
-        set { uiStatus = value; }
+        private set { uiStatus = value; }
     }
 
+    // 인벤토리 UI 참조
     [SerializeField] private UIInventory uiInventory;
-    public UIInventory UIInventory 
+    public UIInventory UIInventory
     {
         get { return uiInventory; }
-        set { uiInventory = value; }
+        private set { uiInventory = value; }
     }
 
     private void Awake()
     {
+        // 중복 방지
         if (instance == null)
         {
             instance = this;
@@ -51,5 +43,23 @@ public class UIManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    // 메인 메뉴 UI 설정
+    public void SetMainMenu(UIMainMenu mainMenu)
+    {
+        UIMainMenu = mainMenu;
+    }
+
+    // 상태창 UI 설정
+    public void SetStatus(UIStatus status)
+    {
+        UIStatus = status;
+    }
+
+    // 인벤토리 UI 설정
+    public void SetInventory(UIInventory inventory)
+    {
+        UIInventory = inventory;
     }
 }

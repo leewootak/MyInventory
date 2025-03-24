@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,13 +11,9 @@ public class UIInventory : MonoBehaviour
     [Header("Reference")]
     [SerializeField] UIMainMenu UIMainMenu;
 
-    private void Awake()
-    {
-        UIManager.Instance.UIInventory = this;
-    }
-
     private void Start()
     {
+        UIManager.Instance.SetInventory(this);
         BackBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
     }
 }
