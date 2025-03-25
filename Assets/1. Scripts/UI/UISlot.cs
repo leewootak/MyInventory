@@ -5,8 +5,13 @@ using UnityEngine.UI;
 public class UISlot : MonoBehaviour
 {
     
-    [SerializeField] Image Slot;
-    [SerializeField] Image Item;
+    [SerializeField] Image slot;
+    [SerializeField] Image item;
+
+    private void Start()
+    {
+
+    }
 
     void SetItem(UISlot item)
     {

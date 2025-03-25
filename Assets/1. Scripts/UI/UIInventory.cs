@@ -5,23 +5,40 @@ using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
-    public List<UISlot> uiSlots = new List<UISlot>();
+    public UISlot slotPrefab;
+    public Transform slot;
+    public List<UISlot> slotList = new List<UISlot>();
 
     [Header("UI")]
-    public TextMeshProUGUI CurWeight;
-    public Button BackBtn;
+    public TextMeshProUGUI curWeight;
+    public Button backBtn;
 
     [Header("Reference")]
-    [SerializeField] UIMainMenu UIMainMenu;
+    [SerializeField] UIMainMenu uiMainMenu;
 
     private void Start()
     {
         UIManager.Instance.SetInventory(this);
-        BackBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
-        
-        for (int i = 0; i < uiSlots.Count; i++)
+        backBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
+
+        SlotSetting();
+    }
+
+    private void SlotSetting()
+    {
+        // ½½·Ô ÃÊ±âÈ­
+        foreach (Transform child in slot)
         {
-            Instantiate(uiSlots[i]);
+            Destroy(child.gameObject);
+        }
+        slotList.Clear();
+
+        // ½½·Ô »ý¼º
+        for (int i = 0; i < 42; i++)
+        {
+            UISlot newSlot = Instantiate(slotPrefab, slot);
+            newSlot.name = ($"slot{i}");
+            slotList.Add(newSlot);
         }
     }
 }

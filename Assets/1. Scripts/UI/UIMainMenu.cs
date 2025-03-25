@@ -7,8 +7,8 @@ public class UIMainMenu : MonoBehaviour
     private bool isStatus, isInventory;
 
     [Header("Btn")]
-    [SerializeField] Button StatusBtn;
-    [SerializeField] Button InventoryBtn;
+    [SerializeField] Button statusBtn;
+    [SerializeField] Button inventoryBtn;
     
     [Header("Reference")]
     [SerializeField] private UIManager UIManager;
@@ -16,8 +16,8 @@ public class UIMainMenu : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.SetMainMenu(this);
-        StatusBtn.onClick.AddListener(OpenStatus);
-        InventoryBtn.onClick.AddListener(OpenInventory);
+        statusBtn.onClick.AddListener(OpenStatus);
+        inventoryBtn.onClick.AddListener(OpenInventory);
     }
 
     public void OpenMainMenu()

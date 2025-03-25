@@ -9,7 +9,7 @@ public class UIStatus : MonoBehaviour
     public TextMeshProUGUI curDef;
     public TextMeshProUGUI curHp;
     public TextMeshProUGUI curCri;
-    public Button BackBtn;
+    public Button backBtn;
 
     [Header("Reference")]
     [SerializeField] UIMainMenu UIMainMenu;
@@ -17,6 +17,6 @@ public class UIStatus : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.SetStatus(this);
-        BackBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
+        backBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
     }
 }

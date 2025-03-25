@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8851886509739105911}
   - component: {fileID: 9124764647895220117}
   - component: {fileID: 1408045934014916529}
+  - component: {fileID: 3974943867544614726}
   m_Layer: 5
-  m_Name: UISlot
+  m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,6 +77,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3974943867544614726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744079967807771767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a076430da7eba4185267c26ce39079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Slot: {fileID: 1408045934014916529}
+  Item: {fileID: 1382066020080640581}
 --- !u!1 &8025080672981708979
 GameObject:
   m_ObjectHideFlags: 0

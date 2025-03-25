@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class AlwaysUI : MonoBehaviour
 {
     [Header("Info")]
-    [SerializeField] TextMeshProUGUI Title;
-    [SerializeField] TextMeshProUGUI Name;
-    [SerializeField] TextMeshProUGUI Level;
-    [SerializeField] Image CurExpBar;
-    [SerializeField] TextMeshProUGUI CurExpText;
+    [SerializeField] TextMeshProUGUI title;
+    [SerializeField] TextMeshProUGUI name;
+    [SerializeField] TextMeshProUGUI level;
+    [SerializeField] Image curExpBar;
+    [SerializeField] TextMeshProUGUI curExpText;
 
 
 }
