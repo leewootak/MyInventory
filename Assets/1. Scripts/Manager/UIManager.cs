@@ -6,6 +6,14 @@ public class UIManager : MonoBehaviour
     private static UIManager instance;
     public static UIManager Instance { get { return instance; } }
 
+    // 항상 활성화되는 UI 참조
+    [SerializeField] private AlwaysUI alwaysUI;
+    public AlwaysUI AlwaysUI 
+    { 
+        get {  return alwaysUI; } 
+        private set { alwaysUI = value; }
+    }
+
     // 메인 메뉴 UI 참조
     [SerializeField] private UIMainMenu uiMainMenu;
     public UIMainMenu UIMainMenu
@@ -43,6 +51,12 @@ public class UIManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    // 항상 활성화되는 UI 설정
+    public void SetAlwaysUI(AlwaysUI always)
+    {
+        AlwaysUI = always;
     }
 
     // 메인 메뉴 UI 설정

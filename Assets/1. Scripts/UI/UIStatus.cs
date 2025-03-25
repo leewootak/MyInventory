@@ -19,4 +19,12 @@ public class UIStatus : MonoBehaviour
         UIManager.Instance.SetStatus(this);
         backBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
     }
+
+    public void SetStatus(Character character)
+    {
+        curAtk.text = ($"{character.Atk}");
+        curDef.text = ($"{character.Def}");
+        curHp.text = ($"{character.Hp}");
+        curCri.text = ($"{character.Cri}");
+    }
 }
