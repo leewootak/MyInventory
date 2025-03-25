@@ -1,12 +1,12 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º
+    // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤
     private static UIManager instance;
     public static UIManager Instance { get { return instance; } }
 
-    // Ç×»ó È°¼ºÈ­µÇ´Â UI ÂüÁ¶
+    // í•­ìƒ í™œì„±í™”ë˜ëŠ” UI ì°¸ì¡°
     [SerializeField] private AlwaysUI alwaysUI;
     public AlwaysUI AlwaysUI 
     { 
@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
         private set { alwaysUI = value; }
     }
 
-    // ¸ŞÀÎ ¸Ş´º UI ÂüÁ¶
+    // ë©”ì¸ ë©”ë‰´ UI ì°¸ì¡°
     [SerializeField] private UIMainMenu uiMainMenu;
     public UIMainMenu UIMainMenu
     {
@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
         private set { uiMainMenu = value; }
     }
 
-    // »óÅÂÃ¢ UI ÂüÁ¶
+    // ìƒíƒœì°½ UI ì°¸ì¡°
     [SerializeField] private UIStatus uiStatus;
     public UIStatus UIStatus
     {
@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
         private set { uiStatus = value; }
     }
 
-    // ÀÎº¥Åä¸® UI ÂüÁ¶
+    // ì¸ë²¤í† ë¦¬ UI ì°¸ì¡°
     [SerializeField] private UIInventory uiInventory;
     public UIInventory UIInventory
     {
@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        // Áßº¹ ¹æÁö
+        // ì¤‘ë³µ ë°©ì§€
         if (instance == null)
         {
             instance = this;
@@ -53,25 +53,25 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Ç×»ó È°¼ºÈ­µÇ´Â UI ¼³Á¤
+    // í•­ìƒ í™œì„±í™”ë˜ëŠ” UI ì„¤ì •
     public void SetAlwaysUI(AlwaysUI always)
     {
         AlwaysUI = always;
     }
 
-    // ¸ŞÀÎ ¸Ş´º UI ¼³Á¤
+    // ë©”ì¸ ë©”ë‰´ UI ì„¤ì •
     public void SetMainMenu(UIMainMenu mainMenu)
     {
         UIMainMenu = mainMenu;
     }
 
-    // »óÅÂÃ¢ UI ¼³Á¤
+    // ìƒíƒœì°½ UI ì„¤ì •
     public void SetStatus(UIStatus status)
     {
         UIStatus = status;
     }
 
-    // ÀÎº¥Åä¸® UI ¼³Á¤
+    // ì¸ë²¤í† ë¦¬ UI ì„¤ì •
     public void SetInventory(UIInventory inventory)
     {
         UIInventory = inventory;

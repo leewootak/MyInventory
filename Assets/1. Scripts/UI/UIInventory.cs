@@ -7,7 +7,7 @@ public class UIInventory : MonoBehaviour
 {
     public UISlot slotPrefab;
     public Transform slot;
-    public List<UISlot> slotList = new List<UISlot>();
+    public List<UISlot> slots = new List<UISlot>();
 
     [Header("UI")]
     public TextMeshProUGUI curWeight;
@@ -21,24 +21,44 @@ public class UIInventory : MonoBehaviour
         UIManager.Instance.SetInventory(this);
         backBtn.onClick.AddListener(UIManager.Instance.UIMainMenu.OpenMainMenu);
 
-        SlotSetting();
+        InitInventoryUI();
+
+        if (GameManager.Instance.character != null)
+        {
+            UpdateInventory(GameManager.Instance.character.Inventory);
+        }
     }
 
-    private void SlotSetting()
+    private void InitInventoryUI()
     {
-        // ΩΩ∑‘ √ ±‚»≠
+        // Ïä¨Î°Ø Ï¥àÍ∏∞Ìôî
         foreach (Transform child in slot)
         {
             Destroy(child.gameObject);
         }
-        slotList.Clear();
+        slots.Clear();
 
-        // ΩΩ∑‘ ª˝º∫
+        // Ïä¨Î°Ø ÏÉùÏÑ±
         for (int i = 0; i < 42; i++)
         {
             UISlot newSlot = Instantiate(slotPrefab, slot);
             newSlot.name = ($"slot{i}");
-            slotList.Add(newSlot);
+            slots.Add(newSlot);
+        }
+    }
+
+    public void UpdateInventory(List<Item> items)
+    {
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (i < items.Count)
+            {
+                slots[i].SetItem(items[i]);
+            }
+            else
+            {
+                slots[i].RefreshUI();
+            }
         }
     }
 }
