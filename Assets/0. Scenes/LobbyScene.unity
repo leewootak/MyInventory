@@ -4170,7 +4170,6 @@ MonoBehaviour:
   slotPrefab: {fileID: 3974943867544614726, guid: 818530743565bd8489277fbdbc7095de, type: 3}
   slot: {fileID: 263704058}
   slots: []
-  curWeight: {fileID: 1930494095}
   backBtn: {fileID: 638314379}
   uiMainMenu: {fileID: 2116351073}
 --- !u!1 &1604840202
