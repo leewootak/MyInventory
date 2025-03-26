@@ -12,3 +12,5 @@
 슬라이드 뷰를 이용한 인벤토리 구성
 
 인벤토리의 아이템을 클릭하여 장착 시 E마크 활성화 및 상태창의 캐릭터에 추가 능력치 적용
+
+<img src="https://github.com/user-attachments/assets/7c45df96-c535-48bc-ab73-b41857c9d3c4"  width="1000">
