@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AlwaysUI alwaysUI;
     public AlwaysUI AlwaysUI 
     { 
-        get {  return alwaysUI; } 
+        get { return alwaysUI; } 
         private set { alwaysUI = value; }
     }
 

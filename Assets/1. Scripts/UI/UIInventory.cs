@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
-    public UISlot slotPrefab;                 // 슬롯 프리팹
-    public Transform slot;                    // 슬롯들이 배치될 부모 객체
+    public UISlot slotPrefab; // 슬롯 프리팹
+    public Transform slot; // 슬롯들이 배치될 부모 객체
     public List<UISlot> slots = new List<UISlot>(); // 생성된 슬롯 리스트
 
     [Header("UI")]
