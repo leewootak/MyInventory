@@ -30,9 +30,29 @@ public class GameManager : MonoBehaviour
     {
         List<Item> items = new List<Item>
         {
-            new Item("검", 5, LoadIcon("Sword")),
-            new Item("갑옷", 5, LoadIcon("Armor")),
-            new Item("활", 5, LoadIcon("Bow"))
+            new Item(
+                "검",
+                LoadIcon("Sword"),
+                new Dictionary<StatType, int>
+                {
+                    { StatType.Atk, 10 }
+                }),
+            new Item(
+                "갑옷",
+                LoadIcon("Armor"),
+                new Dictionary<StatType, int>
+                {
+                    { StatType.Def, 10 },
+                    { StatType.Hp, 50 }
+                }),
+            new Item(
+                "활", 
+                LoadIcon("Bow"),
+                new Dictionary < StatType, int >
+                {
+                    { StatType.Atk, 5 },
+                    { StatType.Cri, 5 },
+                })
         };
 
         GameObject playerObj = Instantiate(player);

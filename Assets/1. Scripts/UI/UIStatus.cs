@@ -1,4 +1,4 @@
-﻿using TMPro;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,9 +22,9 @@ public class UIStatus : MonoBehaviour
 
     public void SetStatus(Character character)
     {
-        curAtk.text = ($"{character.Atk}");
-        curDef.text = ($"{character.Def}");
-        curHp.text = ($"{character.Hp}");
-        curCri.text = ($"{character.Cri}");
+        curAtk.text = ($"{character.Atk} (+ {character.GetPlusStat(StatType.Atk)})");
+        curDef.text = ($"{character.Def} (+ {character.GetPlusStat(StatType.Def)})");
+        curHp.text = ($"{character.Hp} (+ {character.GetPlusStat(StatType.Hp)})");
+        curCri.text = ($"{character.Cri} (+ {character.GetPlusStat(StatType.Cri)})");
     }
 }

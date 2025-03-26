@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     public int Def { get; private set; } = 40;
     public int Hp { get; private set; } = 10;
     public int Cri { get; private set; } = 25;
+
     public Image CurExpBar;
 
     public List<Item> Inventory { get; private set; }
@@ -62,5 +63,17 @@ public class Character : MonoBehaviour
         {
             equippedItems.Add(item);
         }
+
+        UIManager.Instance.UIStatus.SetStatus(this);
+    }
+
+    public int GetPlusStat(StatType statType)
+    {
+        int plus = 0;
+        foreach (var item in equippedItems)
+        {
+            plus += item.GetStat(statType);
+        }
+        return plus;
     }
 }
